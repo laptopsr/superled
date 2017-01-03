@@ -30,7 +30,7 @@ class SiteController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('valaistus_suunnitelma'),
+				'actions'=>array('valaistus_suunnitelma', 'uusi_projekti', 'hyppa_projektin'),
 				'users'=>array('@'),
 			),
 			array('deny',  // deny all users
@@ -67,6 +67,42 @@ class SiteController extends Controller
 				$this->render('error', $error);
 		}
 	}
+
+	public function actionUusi_projekti()
+	{
+		if(isset($_POST['avoin']) and !empty($_POST['avoin']) and empty($_POST['nimike']))
+		{
+			$model = Projektit::model()->findByPk($_POST['avoin']);
+			if(isset($model->id))
+			$_POST['nimike'] = $model->nimike;
+		} else {
+			$model=new Projektit;
+		}
+
+		if(isset($_POST['nimike']))
+		{
+			$model->attributes=$_POST;
+			if($model->save())
+			{
+				$this->redirect(Yii::app()->user->returnUrl);
+			}
+		}
+
+	}
+
+	public function actionHyppa_projektin()
+	{
+
+		if(isset($_POST['id']))
+		{
+			$model = Projektit::model()->findByPk($_POST['id']);
+			if(isset($model->id))
+			echo json_encode($model->kontentti);
+		}
+
+	}
+
+
 
 	/**
 	 * Displays the contact page

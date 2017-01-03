@@ -43,7 +43,7 @@ Yii::app()->clientScript->registerPackage('bootstrapCSS');
       color: #FFFFFF; 
       border: 1px solid green; 
       padding: 15px;
-      font-size: 20px;
+      font-size: 15px;
   }
   /* Tooltip on top */
   .tooltip.top > .tooltip-arrow {
