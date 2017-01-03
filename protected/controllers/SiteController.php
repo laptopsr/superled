@@ -30,7 +30,7 @@ class SiteController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('chat'),
+				'actions'=>array('valaistus_suunnitelma'),
 				'users'=>array('@'),
 			),
 			array('deny',  // deny all users
@@ -51,33 +51,6 @@ class SiteController extends Controller
 		
 		$this->render('index', array(
 		));
-	}
-
-	public function actionChat()
-	{
-		if(Yii::app()->getModule('user')->user()->profile->getAttribute('yid') != 0)
-		$yid = Yii::app()->getModule('user')->user()->profile->getAttribute('yid');
-		else
-		$yid = Yii::app()->user->id;
-
-		if(isset($_POST['newMessage']))
-		{
-			$new = new YiichatPost;
-			$new->chat_id = $yid;
-			$new->text = $_POST['teksti'];
-			$new->owner = Yii::app()->getModule('user')->user()->profile->getAttribute('firstname').' '.Yii::app()->getModule('user')->user()->profile->getAttribute('lastname');
-			$new->save();
-		}
-
-
-		$criteria = new CDbCriteria;
-		$criteria->order = " id DESC";
-		$criteria->limit = 15;
-		$criteria->condition = " 
-			chat_id='".$yid."' 
-		";
-		$model = YiichatPost::model()->findAll($criteria);
-		$this->renderPartial('chat', array('chat'=>$model));
 	}
 
 
@@ -155,4 +128,11 @@ class SiteController extends Controller
 		Yii::app()->user->logout();
 		$this->redirect(Yii::app()->homeUrl);
 	}
+
+	public function actionValaistus_suunnitelma()
+	{
+		$this->render('valaistus_suunnitelma');
+	}
+
+
 }
