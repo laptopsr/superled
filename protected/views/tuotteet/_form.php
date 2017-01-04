@@ -98,13 +98,13 @@
 		<?php echo $form->textArea($model,'lisatiedot',array('rows'=>6, 'cols'=>50)); ?>
 		<?php echo $form->error($model,'lisatiedot'); ?>
 	</div>
-
+-->
 	<div class="row">
 		<?php echo $form->labelEx($model,'icon_tiedoston_nimi'); ?>
 		<?php echo $form->fileField($model,'icon_tiedoston_nimi'); ?>
 		<?php echo $form->error($model,'icon_tiedoston_nimi'); ?>
 	</div>
--->
+
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Luo' : 'Tallenna'); ?>
 	</div>

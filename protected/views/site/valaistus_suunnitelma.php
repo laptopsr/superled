@@ -52,6 +52,20 @@ body{
   )); ?>
 <br>Anna suunnitelmalle nimi
   <input type="text" class="form-control" id="nimike" placeholder="Valaistussuunnitelman nimi">
+
+<br>
+  <input type="text" class="form-control" id="asiakkaan_nimi" placeholder="Asiakkaan nimi">
+<br>
+  <input type="text" class="form-control" id="asiakkaan_sahkoposti" placeholder="Sähköposti">
+<br>
+  <input type="text" class="form-control" id="asiakkaan_osoite" placeholder="Osoite">
+<br>
+  <input type="text" class="form-control" id="asiakkaan_postinumero" placeholder="Postinumero">
+<br>
+  <input type="text" class="form-control" id="asiakkaan_postitoimipaikka" placeholder="Postitoimipaikka">
+<br>
+  <input type="text" class="form-control" id="asiakkaan_puhelinnumero" placeholder="Osoite">
+<br>
   Tai<br>
 
 
@@ -96,19 +110,7 @@ body{
 	}
    ?>
 
-<br>
-  <input type="text" class="form-control" id="asiakkaan_nimi" placeholder="Asiakkaan nimi">
-<br>
-  <input type="text" class="form-control" id="asiakkaan_sahkoposti" placeholder="Sähköposti">
-<br>
-  <input type="text" class="form-control" id="asiakkaan_osoite" placeholder="Osoite">
-<br>
-  <input type="text" class="form-control" id="asiakkaan_postinumero" placeholder="Postinumero">
-<br>
-  <input type="text" class="form-control" id="asiakkaan_postitoimipaikka" placeholder="Postitoimipaikka">
-<br>
-  <input type="text" class="form-control" id="asiakkaan_puhelinnumero" placeholder="Osoite">
-<br>
+
   </div>
  </div>
 

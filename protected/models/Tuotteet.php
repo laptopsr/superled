@@ -92,7 +92,7 @@ class Tuotteet extends CActiveRecord
 			'avauskulma' => 'Avauskulma',
 			'himmennettava' => 'Himmennettava',
 			'lisatiedot' => 'Lisatiedot',
-			'icon_tiedoston_nimi' => 'Icon Tiedoston Nimi',
+			'icon_tiedoston_nimi' => 'Ikoni tiedosto',
 		);
 	}
 
