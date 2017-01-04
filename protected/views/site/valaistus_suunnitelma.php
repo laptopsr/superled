@@ -29,6 +29,7 @@ body{
 
   <div class="col-sm-8">
 
+
    <div id="dropLaatikko" data-toggle="tooltip"	data-placement="top" title="Klikkaa ikonia kaksi kertaa poistaaaksesi se.">
      <?php if(!empty($projekti->pohjakuva) and empty($projekti->kontentti) and file_exists("uploaded/pohjakuvat/".$projekti->pohjakuva)) : ?>
      <img src="../../uploaded/pohjakuvat/<?php echo $projekti->pohjakuva; ?>" id="pohjakuva">
@@ -78,6 +79,7 @@ body{
 	   }
 	}
    ?>
+
 
   </div>
 
