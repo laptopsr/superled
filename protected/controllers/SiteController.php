@@ -70,22 +70,10 @@ class SiteController extends Controller
 
 	public function actionUusi_projekti()
 	{
-		if(isset($_POST['avoin']) and !empty($_POST['avoin']) and empty($_POST['nimike']))
-		{
-			$model = Projektit::model()->findByPk($_POST['avoin']);
-			if(isset($model->id))
-			$_POST['nimike'] = $model->nimike;
-		} else {
-			$model=new Projektit;
-		}
 
-		if(isset($_POST['nimike']))
+		if(isset($_POST['kontentti']) and isset($_POST['id']) and !empty($_POST['id']))
 		{
-			$model->attributes=$_POST;
-			if($model->save())
-			{
-				$this->redirect(Yii::app()->user->returnUrl);
-			}
+			$model = Projektit::model()->updateByPk($_POST['id'], array('kontentti'=>$_POST['kontentti'], 'jpeg_data'=>$_POST['jpeg_data']));
 		}
 
 	}
@@ -97,7 +85,22 @@ class SiteController extends Controller
 		{
 			$model = Projektit::model()->findByPk($_POST['id']);
 			if(isset($model->id))
-			echo json_encode($model->kontentti);
+			{
+				$arr = array(
+					'kontentti'=>$model->kontentti,
+					/*
+					'nimike'=>$model->nimike,
+					'asiakkaan_nimi'=>$model->asiakkaan_nimi,
+					'asiakkaan_sahkoposti'=>$model->asiakkaan_sahkoposti,
+					'asiakkaan_osoite'=>$model->asiakkaan_osoite,
+					'asiakkaan_postinumero'=>$model->asiakkaan_postinumero,
+					'asiakkaan_postitoimipaikka'=>$model->asiakkaan_postitoimipaikka,
+					'asiakkaan_puhelinnumero'=>$model->asiakkaan_puhelinnumero,
+					*/
+					'pohjakuva'=>$model->pohjakuva,
+				);
+				echo json_encode($arr);
+			}
 		}
 
 	}
@@ -167,7 +170,42 @@ class SiteController extends Controller
 
 	public function actionValaistus_suunnitelma()
 	{
-		$this->render('valaistus_suunnitelma');
+
+		$projekti = new Projektit;
+		if(isset($_GET['id']))
+		$projekti = Projektit::model()->findByPk($_GET['id']);
+
+
+		if(isset($_GET['pdf']) and !empty($projekti->kontentti))
+		{
+		  $html = '<style>
+body{
+	margin: 0;
+}
+#dropLaatikko, #resultIkonista{
+	width: 700px;
+}
+#pohjakuva{
+	width: 100%;
+	height: auto;
+}
+.dragLaatikko img, .dropped img{
+	width: 20px;
+}
+</style>';
+
+		  $html .= '<img src='.$projekti->jpeg_data.'>';
+
+	          $html2pdf = Yii::app()->ePdf->HTML2PDF('P', 'A4', 'en');
+		  $html2pdf->setDefaultFont('Arial');
+	          $html2pdf->WriteHTML($html);
+	          $html2pdf->Output();
+		  exit;
+		}
+
+
+
+		$this->render('valaistus_suunnitelma', array('projekti'=>$projekti));
 	}
 
 

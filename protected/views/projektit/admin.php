@@ -45,7 +45,7 @@ $('.search-form form').submit(function(){
 		'id',
 		'time',
 		'nimike',
-		//'kontentti',
+		'pohjakuva',
 		array(
 			'class'=>'CButtonColumn',
 		),

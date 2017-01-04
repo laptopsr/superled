@@ -37,8 +37,9 @@ class Projektit extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('nimike, kontentti', 'required'),
-			array('nimike', 'length', 'max'=>255),
+			array('nimike', 'required'),
+			array('nimike, asiakkaan_nimi, asiakkaan_sahkoposti, asiakkaan_osoite, asiakkaan_postinumero, asiakkaan_postitoimipaikka, asiakkaan_puhelinnumero, pohjakuva', 'length', 'max'=>255),
+			array('kontentti, jpeg_data', 'length', 'max'=>1500000),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, time, nimike, kontentti', 'safe', 'on'=>'search'),

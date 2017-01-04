@@ -70,8 +70,16 @@ class ProjektitController extends Controller
 		if(isset($_POST['Projektit']))
 		{
 			$model->attributes=$_POST['Projektit'];
+			$model->pohjakuva=CUploadedFile::getInstance($model,'pohjakuva');
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+			{
+				if (!file_exists(Yii::app()->basePath."/../uploaded/pohjakuvat")) {
+					mkdir(Yii::app()->basePath."/../uploaded/pohjakuvat", 0777, true);
+				}
+
+				$model->pohjakuva->saveAs('uploaded/pohjakuvat/'.$model->pohjakuva);
+				$this->redirect(array('//site/valaistus_suunnitelma', 'id'=>$model->id));
+			}
 		}
 
 		$this->render('create',array(
@@ -94,8 +102,16 @@ class ProjektitController extends Controller
 		if(isset($_POST['Projektit']))
 		{
 			$model->attributes=$_POST['Projektit'];
+			$model->pohjakuva=CUploadedFile::getInstance($model,'pohjakuva');
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+			{
+				if (!file_exists(Yii::app()->basePath."/../uploaded/pohjakuvat")) {
+					mkdir(Yii::app()->basePath."/../uploaded/pohjakuvat", 0777, true);
+				}
+
+				$model->pohjakuva->saveAs('uploaded/pohjakuvat/'.$model->pohjakuva);
+				$this->redirect(array('//site/valaistus_suunnitelma', 'id'=>$model->id));
+			}
 		}
 
 		$this->render('update',array(

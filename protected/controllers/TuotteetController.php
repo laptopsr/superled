@@ -73,6 +73,10 @@ class TuotteetController extends Controller
 			$model->icon_tiedoston_nimi=CUploadedFile::getInstance($model,'icon_tiedoston_nimi');
 			if($model->save())
 			{
+				if (!file_exists(Yii::app()->basePath."/../uploaded/icons")) {
+					mkdir(Yii::app()->basePath."/../uploaded/icons", 0777, true);
+				}
+
 				$model->icon_tiedoston_nimi->saveAs('uploaded/icons/'.$model->icon_tiedoston_nimi);
 				$this->redirect(array('view','id'=>$model->id));
 			}
@@ -101,6 +105,10 @@ class TuotteetController extends Controller
 			$model->icon_tiedoston_nimi=CUploadedFile::getInstance($model,'icon_tiedoston_nimi');
 			if($model->save())
 			{
+				if (!file_exists(Yii::app()->basePath."/../uploaded/icons")) {
+					mkdir(Yii::app()->basePath."/../uploaded/icons", 0777, true);
+				}
+
 				$model->icon_tiedoston_nimi->saveAs('uploaded/icons/'.$model->icon_tiedoston_nimi);
 				$this->redirect(array('view','id'=>$model->id));
 			}

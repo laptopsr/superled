@@ -4,8 +4,8 @@
 /* @var $form CActiveForm */
 ?>
 
-<div class="form">
-
+<div class="form row">
+ <div class="col-sm-4">
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'tuotteet-form',
 	'enableAjaxValidation'=>false,
@@ -20,7 +20,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'nimi'); ?>
-		<?php echo $form->textField($model,'nimi',array('size'=>60,'maxlength'=>255)); ?>
+		<?php echo $form->textField($model,'nimi',array('size'=>60,'maxlength'=>255, 'class'=>'form-control')); ?>
 		<?php echo $form->error($model,'nimi'); ?>
 	</div>
 <!--
@@ -39,13 +39,13 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'hinta'); ?>
-		<?php echo $form->textField($model,'hinta'); ?>
+		<?php echo $form->textField($model,'hinta', array('class'=>'form-control')); ?>
 		<?php echo $form->error($model,'hinta'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'url_osoite'); ?>
-		<?php echo $form->textField($model,'url_osoite',array('size'=>60,'maxlength'=>500)); ?>
+		<?php echo $form->textField($model,'url_osoite',array('size'=>60,'maxlength'=>500, 'class'=>'form-control')); ?>
 		<?php echo $form->error($model,'url_osoite'); ?>
 	</div>
 
@@ -98,17 +98,17 @@
 		<?php echo $form->textArea($model,'lisatiedot',array('rows'=>6, 'cols'=>50)); ?>
 		<?php echo $form->error($model,'lisatiedot'); ?>
 	</div>
-
+-->
 	<div class="row">
 		<?php echo $form->labelEx($model,'icon_tiedoston_nimi'); ?>
 		<?php echo $form->fileField($model,'icon_tiedoston_nimi'); ?>
 		<?php echo $form->error($model,'icon_tiedoston_nimi'); ?>
 	</div>
--->
+
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Luo' : 'Tallenna'); ?>
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'Luo' : 'Tallenna', array('class'=>'btn btn-primary')); ?>
 	</div>
 
 <?php $this->endWidget(); ?>
-
+ </div>
 </div><!-- form -->
