@@ -12,7 +12,7 @@
         'htmlOptions' => array('enctype' => 'multipart/form-data'),
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+	<p class="note">Tähdellä <span class="required">*</span> merkityt kentät ovat pakollisia.</p>
 
 	<?php echo $form->errorSummary($model); ?>
 
@@ -23,7 +23,7 @@
 		<?php echo $form->textField($model,'nimi',array('size'=>60,'maxlength'=>255)); ?>
 		<?php echo $form->error($model,'nimi'); ?>
 	</div>
-
+<!--
 	<div class="row">
 		<?php echo $form->labelEx($model,'merkki'); ?>
 		<?php echo $form->textField($model,'merkki',array('size'=>60,'maxlength'=>255)); ?>
@@ -35,12 +35,7 @@
 		<?php echo $form->textField($model,'malli',array('size'=>60,'maxlength'=>255)); ?>
 		<?php echo $form->error($model,'malli'); ?>
 	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'url_osoite'); ?>
-		<?php echo $form->textField($model,'url_osoite',array('size'=>60,'maxlength'=>500)); ?>
-		<?php echo $form->error($model,'url_osoite'); ?>
-	</div>
+-->
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'hinta'); ?>
@@ -48,6 +43,14 @@
 		<?php echo $form->error($model,'hinta'); ?>
 	</div>
 
+	<div class="row">
+		<?php echo $form->labelEx($model,'url_osoite'); ?>
+		<?php echo $form->textField($model,'url_osoite',array('size'=>60,'maxlength'=>500)); ?>
+		<?php echo $form->error($model,'url_osoite'); ?>
+	</div>
+
+
+<!--
 	<div class="row">
 		<?php echo $form->labelEx($model,'vari'); ?>
 		<?php echo $form->textField($model,'vari',array('size'=>60,'maxlength'=>255)); ?>
@@ -101,9 +104,9 @@
 		<?php echo $form->fileField($model,'icon_tiedoston_nimi'); ?>
 		<?php echo $form->error($model,'icon_tiedoston_nimi'); ?>
 	</div>
-
+-->
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'Luo' : 'Tallenna'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

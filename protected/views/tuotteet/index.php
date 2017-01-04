@@ -7,12 +7,12 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Create Tuotteet', 'url'=>array('create')),
-	array('label'=>'Manage Tuotteet', 'url'=>array('admin')),
+	array('label'=>'Lisää uusi tuote', 'url'=>array('create')),
+	array('label'=>'Hallitse tuotteita', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Tuotteets</h1>
+<h1>Tuotteet</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

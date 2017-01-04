@@ -8,11 +8,11 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Tuotteet', 'url'=>array('index')),
-	array('label'=>'Manage Tuotteet', 'url'=>array('admin')),
+	//array('label'=>'List Tuotteet', 'url'=>array('index')),
+	array('label'=>'Hallitse tuotteita', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create Tuotteet</h1>
+<h1>Luo uusi tuote</h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

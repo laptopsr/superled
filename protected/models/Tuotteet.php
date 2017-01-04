@@ -49,7 +49,7 @@ class Tuotteet extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('nimi, merkki, malli, url_osoite, hinta, vari, valon_maara, teho, jannite, lampun_koko, avauskulma, himmennettava, lisatiedot, icon_tiedoston_nimi', 'required'),
+			array('nimi, url_osoite, hinta, icon_tiedoston_nimi', 'required'),
 			array('hinta', 'numerical', 'integerOnly'=>true),
 			array('nimi, merkki, malli, vari, valon_maara, teho, jannite, lampun_koko, avauskulma, himmennettava, icon_tiedoston_nimi', 'length', 'max'=>255),
 			array('url_osoite', 'length', 'max'=>500),
@@ -82,8 +82,8 @@ class Tuotteet extends CActiveRecord
 			'nimi' => 'Nimi',
 			'merkki' => 'Merkki',
 			'malli' => 'Malli',
-			'url_osoite' => 'Url Osoite',
-			'hinta' => 'Hinta',
+			'url_osoite' => 'Url-osoite',
+			'hinta' => 'Hinta €',
 			'vari' => 'Vari',
 			'valon_maara' => 'Valon Maara',
 			'teho' => 'Teho',

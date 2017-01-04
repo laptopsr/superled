@@ -94,7 +94,7 @@ $this->menu=array(
 </div>
 </div>
 
-
+<!--
 <?php if(UserModule::isAdmin()) : ?>
 <div class="row">
  <div class="col-sm-4">
@@ -112,7 +112,7 @@ $this->menu=array(
  </div>
 </div>
 <?php endif; ?>
-
+-->
 
 
 

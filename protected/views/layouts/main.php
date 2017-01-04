@@ -108,7 +108,7 @@ $(document).ready(function(){
         <li><?php echo CHtml::link('Etusivu',Yii::app()->request->baseUrl.'/index.php/site/index'); ?></li>
 
 
-
+<!--
       <li class="dropdown">
         <a href="#" class="dropdown-toggle " data-toggle="dropdown" title="Asetukset"><i class="fa fa-bars" style="font-size: 130%"></i></a>
           <ul class="dropdown-menu">
@@ -119,7 +119,7 @@ $(document).ready(function(){
             <li><?php echo CHtml::link('Test2',Yii::app()->request->baseUrl.'/index.php/site/test2'); ?></li>
           </ul>
       </li>
-
+-->
       </ul>
 
       </ul>
